@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Dev",
+      "request": "launch",
+      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node",
+      "env": {
+        "NODE_ENV": "production",
+        "DEV_HTTP_PORT": "3006"
+      }
+    },
+    {
+      "name": "Build",
+      "request": "launch",
+      "runtimeArgs": ["run", "build"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    },
+    {
+      "name": "Build for runtime debug.",
+      "request": "launch",
+      "runtimeArgs": ["run", "build:dbg"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    }
+  ]
+}

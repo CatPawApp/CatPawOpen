@@ -5,10 +5,12 @@
     "type": "module",
     "scripts": {
         "dev": "cross-env DEV_HTTP_PORT=3006 nodemon --config nodemon.json src/dev.js",
-        "build": "rimraf dist && cross-env NODE_ENV=production node esbuild.js && cross-env NODE_ENV=production node esbuild-config.js",
+        "_build": "rimraf dist && node esbuild.js && node esbuild-config.js",
+        "build": "cross-env NODE_ENV=production npm run _build",
+        "build:dbg": "cross-env NODE_ENV=development npm run _build",
         "build:config": "cross-env NODE_ENV=production node esbuild-config.js",
-        "build:rollup": "rimraf dist && cross-env NODE_ENV=production node rollup.js && cross-env NODE_ENV=production node rollup-config.js",
-        "build:rollup:config": "cross-env NODE_ENV=production node rollup-config.js"
+        "build:rollup(obsolete)": "rimraf dist && cross-env NODE_ENV=production node rollup.js && cross-env NODE_ENV=production node rollup-config.js",
+        "build:rollup:config(obsolete)": "cross-env NODE_ENV=production node rollup-config.js"
     },
     "author": "",
     "devDependencies": {

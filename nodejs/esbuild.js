@@ -11,7 +11,7 @@ esbuild.build({
     format: 'cjs',
     platform: 'node',
     target: 'node18',
-    sourcemap: true,
+    sourcemap: process.env.NODE_ENV === 'development' ? 'inline' : false,
     plugins: [genMd5()],
 });
 
